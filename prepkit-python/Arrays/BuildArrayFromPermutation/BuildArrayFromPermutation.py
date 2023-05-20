@@ -7,5 +7,5 @@ class Solution:
             ans[el] = nums[nums[el]]
         return ans
 
-        # Single line solution
+        # Optimal Single line solution
         # return [nums[i] for i in nums]
