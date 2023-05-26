@@ -20,9 +20,7 @@ class Solution:
             for el in P:
                 if -el in N:
                     ans.add((-el, 0, el))
-        print(nums)
-        print(P)
-        print(N)
+
         for i in range(len(p)):
             for j in range(i+1, len(p)):
                 target = -1 * (p[i] + p[j])
@@ -35,5 +33,5 @@ class Solution:
                 if target in P:
                     ans.add((n[i], n[j], target))
 
-        print(ans)
         return ans
+        # return [list(i) for i in ans]
