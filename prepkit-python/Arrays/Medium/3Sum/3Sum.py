@@ -1,7 +1,7 @@
 # 15. 3Sum
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # 3 Pointers Solution
+        # 3 Pointers Solution - Same for 3Sum Closest
         nums.sort()
         n = len(nums)
         print(nums)
