@@ -1,6 +1,32 @@
 # 15. 3Sum
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # 3 Pointers Solution
+        nums.sort()
+        n = len(nums)
+        print(nums)
+        arr = list()
+        for p1 in range(n - 2):
+            if p1 == 0 or nums[p1] != nums[p1 - 1]:
+                p2 = p1 + 1
+                p3 = n - 1
+                while p2 < p3:
+                    sum = nums[p1] + nums[p2] + nums[p3]
+                    if sum == 0:
+                        arr.append([nums[p1], nums[p2], nums[p3]])
+                        while p2 < p3 and nums[p2] == nums[p2 + 1]:
+                            p2 += 1
+                        while p2 < p3 and nums[p3] == nums[p3 - 1]:
+                            p3 -= 1
+                        p2 += 1
+                        p3 -= 1
+                    elif sum > 0:
+                        p3 -= 1
+                    else:
+                        p2 += 1
+
+        return arr
+        '''
         nums.sort()
         ans = set()
         p, n, z = [], [], []
@@ -35,3 +61,4 @@ class Solution:
 
         return ans
         # return [list(i) for i in ans]
+        '''
