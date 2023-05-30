@@ -6,3 +6,4 @@ class Solution:
     # Other solution
         # return ('[.]').join(address.split('.'))
         # return ('').join(['[.]' if el == '.' else el for el in address])
+
