@@ -1,5 +1,5 @@
 # 347. Top K Frequent Elements
-
+# My Solution: https://leetcode.com/problems/top-k-frequent-elements/solutions/3573078/one-line-solution-beats-9318/
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         arr = []
