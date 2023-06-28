@@ -2,24 +2,40 @@
 
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        pattern ='[^0-9a-zA-Z]+'
-        clean_string = re.sub(pattern, '', s.lower())
-        print(clean_string)
-        return clean_string == clean_string[::-1]
-    
-    # Other Solution
-        # 1
-        # s = [el for el in s.lower() if el.isalnum()]
-        # return s == s[::-1]
+        l, r = 0, len(s) - 1
+        while l < r:
+            while l < r and not s[l].isalnum():
+                l += 1
+            while l < r and not s[r].isalnum():
+                r -= 1
+            if s[l].lower() != s[r].lower():
+                return False
+            else:
+                l += 1
+                r -= 1
+        return True
 
-        # 2. Two pointer Solution
-        
-        # p1, p2 = 0, len(s) - 1
-        # while p1 < p2:
-        #     a, b = s[p1].lower(), s[p2].lower()
+    # Other solution - 1 (Iterate through all the characters)
+        # l, r = 0, len(s) - 1
+        # while l < r:
+        #     if not s[l].isalnum():
+        #         l += 1
+        #     elif not s[r].isalnum():
+        #         r -= 1
+        #     elif s[l].lower() != s[r].lower():
+        #         return False
+        #     else:
+        #         l += 1
+        #         r -= 1
+        # return True
+
+    # Other Solution - 2
+        # l, r = 0, len(s) - 1
+        # while l < r:
+        #     a, b = s[l].lower(), s[r].lower()
         #     if a.isalnum() and b.isalnum():
         #         if a != b: return False
-        #         p1 += 1
-        #         p2 -= 1
-        #     p1, p2 = p1 + (not a.isalnum()), p2 - (not b.isalnum())
+        #         l += 1
+        #         r -= 1
+        #     l, r = l + (not a.isalnum()), r - (not b.isalnum())
         # return True
