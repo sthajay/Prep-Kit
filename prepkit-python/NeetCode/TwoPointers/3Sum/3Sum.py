@@ -1,7 +1,56 @@
 # 15. 3Sum
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # 3 Pointers Solution - Same for 3Sum Closest
+        nums.sort()
+        ans = []
+        for i, el in enumerate(nums):
+            if i > 0 and el == nums[i-1]:
+                continue
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                threeSum = el + nums[l] + nums[r]
+                if threeSum > 0:
+                    r -= 1
+                elif threeSum < 0:
+                    l += 1
+                else:
+                    ans.append([el, nums[l], nums[r]])
+                    l += 1
+                    while l < r and nums[l] == nums[l - 1]:
+                        l += 1
+        return ans
+
+        '''
+        Time Complexity = O(nlogn) (for sorting) + O(n^2) (for nested loops).
+        However, when using Big O notation, we typically consider the term with the highest growth rate.
+        In this case, O(n^2) has a higher growth rate than O(nlogn), so we can simplify the expression to O(n^2).
+        Therefore, the output would be O(n^2).
+
+        The space complexity of this code is O(1) since it does not use any additional space 
+        that grows with the input size. The ans list is the only variable that grows, 
+        but it represents the output and is not counted towards the space complexity analysis.
+        
+        '''
+        # Other Solution:
+        # nums.sort()
+        # ans = []
+        # for i in range(len(nums)):
+        #     if i > 0 and nums[i] == nums[i-1]:
+        #         continue
+        #     l, r = i + 1, len(nums) - 1
+        #     while l < r:
+        #         threeSum = nums[i] + nums[l] + nums[r]
+        #         if threeSum > 0:
+        #             r -= 1
+        #         elif threeSum < 0:
+        #             l += 1
+        #         else:
+        #             ans.append([nums[i], nums[l], nums[r]])
+        #             l += 1
+        #             while l < r and nums[l] == nums[l-1]:
+        #                 l += 1
+        # return ans
+        '''
         nums.sort()
         n = len(nums)
         print(nums)
@@ -26,6 +75,7 @@ class Solution:
                         p2 += 1
 
         return arr
+        '''
         '''
         nums.sort()
         ans = set()
