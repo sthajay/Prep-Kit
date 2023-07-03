@@ -23,7 +23,8 @@ class Solution:
         '''
         Time Complexity = O(nlogn) (for sorting) + O(n^2) (for nested loops).
         However, when using Big O notation, we typically consider the term with the highest growth rate.
-        In this case, O(n^2) has a higher growth rate than O(nlogn), so we can simplify the expression to O(n^2).
+        In this case, O(n^2) has a higher growth rate than O(nlogn), so we can simplify the expression 
+        to O(n^2).
         Therefore, the output would be O(n^2).
 
         The space complexity of this code is O(1) since it does not use any additional space 
