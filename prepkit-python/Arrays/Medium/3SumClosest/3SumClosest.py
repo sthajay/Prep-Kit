@@ -14,6 +14,8 @@ class Solution:
         ans = 0
         initial_diff = float('inf')
         for i, el in enumerate(nums):
+            if i > 0 and el == nums[i-1]:
+                continue
             l, r = i + 1, len(nums) - 1
             while l < r:
                 threeSum = el + nums[l] + nums[r]
