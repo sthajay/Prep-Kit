@@ -16,13 +16,22 @@ class Solution:
                 return True
         return False
 
-        # Other Solution
         # obj = dict()
         # curr = head
         # while curr:
         #     if curr in obj:
         #         return True
-        #     obj[curr] = curr
+        #     obj[curr] = 1
+        #     curr = curr.next
+
+        # return False
+
+        # obj = set()
+        # curr = head
+        # while curr:
+        #     if curr in obj:
+        #         return True
+        #     obj.add(curr)
         #     curr = curr.next
 
         # return False
